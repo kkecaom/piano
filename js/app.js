@@ -9,7 +9,7 @@ import { Keyboard } from './ui/keyboard.js';
 import { Waterfall } from './ui/waterfall.js';
 import { midiToPerformance } from './midi/performance.js';
 import { composeReverie } from './music/composer.js';
-import { COLLECTION, CLASSICS, ORIGINALS, matchSlot, titleFromFileName } from './library/catalog.js';
+import { COLLECTION, CLASSICS, ORIGINALS, MERGED_SLOTS, matchSlot, titleFromFileName } from './library/catalog.js';
 import { listMidi, saveMidi, deleteMidi, loadPrefs, savePrefs } from './storage.js';
 import { bindComputerKeyboard, bindMidiInput, isTypingTarget } from './input.js';
 import { formatTime, clamp } from './music/theory.js';
@@ -149,8 +149,28 @@ const perfCache = new Map();
 
 async function refreshLibrary() {
   records = await listMidi();
+  if (await migrateMergedSlots()) records = await listMidi();
   buildItems();
   renderLibrary();
+}
+
+/** Move files saved under a slot that was merged away into its new slot (or keep them as a custom song). */
+async function migrateMergedSlots() {
+  let changed = false;
+  for (const r of records) {
+    const target = MERGED_SLOTS[r.slotId];
+    if (!target) continue;
+    const taken = records.some((x) => x.slotId === target);
+    const slot = COLLECTION.find((c) => c.id === target);
+    const moved = taken
+      ? { ...r, id: `custom-${r.added}-${Math.floor(Math.random() * 1e6)}`, slotId: null, title: titleFromFileName(r.fileName) }
+      : { ...r, id: target, slotId: target, title: slot.title };
+    await saveMidi(moved);
+    await deleteMidi(r.id);
+    if (!taken) records.push(moved);
+    changed = true;
+  }
+  return changed;
 }
 
 function buildItems() {

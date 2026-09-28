@@ -85,6 +85,8 @@ test('file names are matched to collection slots', () => {
   assert.equal(matchSlot('梦中的婚礼 钢琴.mid').id, 'slot-mariage');
   assert.equal(matchSlot('Interstellar main theme.mid').id, 'slot-instellar');
   assert.equal(matchSlot('Call of Silence (piano).mid').id, 'slot-silence');
-  assert.equal(matchSlot('secret place.mid').id, 'slot-secret');
+  assert.equal(matchSlot('secret place.mid').id, 'slot-sacred');
+  assert.equal(matchSlot('Sacred_Play_Secret_Place.mid').id, 'slot-sacred');
+  assert.equal(matchSlot('in stellar.mid').id, 'slot-instellar');
   assert.equal(matchSlot('random tune.mid'), null);
 });

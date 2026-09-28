@@ -17,14 +17,16 @@ import { paperLanterns, letterNeverSent } from '../music/pieces/originals.js';
 export const COLLECTION = [
   { id: 'slot-truth', title: 'Truth That You Leave Me', subtitle: '', aliases: ['truth that you leave', 'the truth that you leave', '你离开的真相'] },
   { id: 'slot-juebieshu', title: '诀别书', subtitle: '', aliases: ['诀别书', 'juebieshu', 'jue bie shu', 'farewell letter'] },
-  { id: 'slot-instellar', title: 'In Stellar', subtitle: '', aliases: ['in stellar', 'instellar', 'interstellar'] },
+  { id: 'slot-instellar', title: 'Interstellar', subtitle: 'Hans Zimmer', aliases: ['interstellar', 'in stellar', 'instellar', '星际穿越'] },
   { id: 'slot-lawrence', title: 'Merry Christmas, Mr. Lawrence', subtitle: 'Ryuichi Sakamoto', aliases: ['merry christmas mr lawrence', 'mr lawrence', 'mr. lawrence', 'lawrence', '圣诞快乐劳伦斯先生', '戦場のメリークリスマス'] },
-  { id: 'slot-sacred', title: 'Sacred Play', subtitle: '', aliases: ['sacred play'] },
-  { id: 'slot-secret', title: 'Secret Place', subtitle: '', aliases: ['secret place'] },
+  { id: 'slot-sacred', title: 'Sacred Play Secret Place', subtitle: 'Matryoshka', aliases: ['sacred play secret place', 'sacred play', 'secret place'] },
   { id: 'slot-silence', title: 'Call of Silence', subtitle: 'Hiroyuki Sawano', aliases: ['call of silence', 'callofsilence', 'call-of-silence'] },
   { id: 'slot-mariage', title: '梦中的婚礼', subtitle: "Mariage d'Amour", aliases: ['梦中的婚礼', 'mariage d amour', "mariage d'amour", 'mariage damour', 'mariage', 'wedding in a dream'] },
   { id: 'slot-adeline', title: '水边的阿丽丽娜', subtitle: 'Ballade pour Adeline', aliases: ['水边的阿丽丽娜', '水边的阿狄丽娜', '阿狄丽娜', '阿丽丽娜', 'ballade pour adeline', 'adeline', 'adelina'] },
 ];
+
+// Slots that were merged into another one: files saved under the old id move to the new slot.
+export const MERGED_SLOTS = { 'slot-secret': 'slot-sacred' };
 
 export const CLASSICS = [
   { id: 'bach-846', build: bachPrelude, title: 'Prelude in C major, BWV 846', subtitle: 'J. S. Bach' },

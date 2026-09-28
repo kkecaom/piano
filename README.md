@@ -23,13 +23,12 @@ The library has a slot for each song in your collection:
 |---|------|
 | 1 | Truth That You Leave Me |
 | 2 | 诀别书 |
-| 3 | In Stellar |
+| 3 | Interstellar |
 | 4 | Merry Christmas, Mr. Lawrence |
-| 5 | Sacred Play |
-| 6 | Secret Place |
-| 7 | Call of Silence |
-| 8 | 梦中的婚礼 (Mariage d'Amour) |
-| 9 | 水边的阿丽丽娜 (Ballade pour Adeline) |
+| 5 | Sacred Play Secret Place |
+| 6 | Call of Silence |
+| 7 | 梦中的婚礼 (Mariage d'Amour) |
+| 8 | 水边的阿丽丽娜 (Ballade pour Adeline) |
 
 These are copyrighted works, so Nocturne doesn't ship their notes. Attach a MIDI arrangement you own or have licensed to a slot: one you bought from a sheet-music store, transcribed yourself, or exported from MuseScore, Sibelius, Logic or similar. The piano will then perform it.
 
