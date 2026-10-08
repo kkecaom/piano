@@ -4,7 +4,14 @@ A concert grand that plays by itself in your browser. It uses real multi-velocit
 
 ## Run it
 
-It's a static site with no build step. Serve the folder over HTTP:
+**Easiest:** double-click the launcher for your computer. It starts the piano and opens it in your default browser.
+
+* **Mac:** `Start Nocturne.command`. The first time, macOS may refuse because the file is "from an unidentified developer". Right-click it, choose **Open**, then **Open** again.
+* **Windows:** `Start Nocturne.bat`. If Windows shows "Windows protected your PC", click **More info**, then **Run anyway**.
+
+Keep the window that appears open while you listen; closing it stops the piano. Both launchers need Python 3 (macOS offers to install it; on Windows get it from python.org).
+
+**By hand:** it's a static site with no build step. Serve the folder over HTTP:
 
 ```sh
 python3 -m http.server 8000     # or: npx http-server -p 8000
